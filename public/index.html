@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-    <title>Eat The Burger!!</title>
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="/assets/js/burgers.js"></script>
-  </head>
-  <body>
-    <h1>Burgers.</h1>
 
-    <h2>Burgers...  that are not eaten!</h2>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+  <title>Eat The Burger!!</title>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script src="/assets/js/burgers.js"></script>
+</head>
 
-    <ul id="notAteBurgers"></ul>
+<body>
+  <div class="container text-center bg-info">
+    <div class="row">
+      <h1>Burgers.</h1>
+    </div>
+  </div>
 
-    <h2>Burgers that no longer exist???</h2>
+  <div class="container bg-secondary text-white">
+    <div class="row">
+      <div class=col-6>
+        <h2>Burgers... that are not eaten!</h2>
 
-    <ul id="ateBurgers"></ul>
 
-    <h2>Create a Burger (wow)</h2>
-    <form class="create-form">
-      <div class="form-group">
-        <label for="bur">Burger's Name:</label>
-        <input type="text" id="bur" name="name" />
+        <ul id="notAteBurgers"></ul>
       </div>
+      <div class="col-6">
+        <h2>Burgers that no longer exist???</h2>
 
-      <div class="form-group">
-        <label for="ate">U Eat That???</label><br />
-        <input type="radio" name="ate" value="1" checked /> Ate.<br />
-        <input type="radio" name="ate" value="0" /> Saving for Later... (weird)
+        <ul id="ateBurgers"></ul>
       </div>
+    </div>
+  </div>
 
-      <button type="submit">Create Burger</button>
-    </form>
-  </body>
+
+  <div class="container text-center bg-secondary text-white">
+    <div class="row">
+      <h2>Create a Burger (wow)</h2>
+      <form class="create-form">
+        <div class="form-group">
+          <label for="bur">Burger's Name:</label>
+          <input type="text" id="bur" name="name" />
+        </div>
+
+        <button class="btn btn-primary" type="submit">Create Burger</button>
+      </form>
+    </div>
+  </div>
+</body>
+
 </html>

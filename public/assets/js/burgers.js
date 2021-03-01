@@ -17,13 +17,13 @@ $(function () {
 
       if (burgs[i].ate) {
         new_elem +=
-          "<button class='delete-burger' data-id='" +
+          " <button class='delete-burger btn btn-danger' data-id='" +
           burgs[i].id +
           "'>Delete Time!</button></li>";
         ateElem.append(new_elem);
       } else {
         new_elem +=
-        "<button class='eat' data-id='" +
+        " <button class='eat btn btn-warning' data-id='" +
           burgs[i].id +
           "' data-nowate='" +
           !burgs[i].ate +
@@ -61,9 +61,7 @@ $(function () {
       name: $("#bur")
         .val()
         .trim(),
-      ate: $("[name=ate]:checked")
-        .val()
-        .trim()
+      ate: 0
     };
 
     $.ajax("/burgers", {
