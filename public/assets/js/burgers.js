@@ -1,7 +1,7 @@
-$(function() {
+$(function () {
   $.ajax("/burgers", {
     type: "GET"
-  }).then(function(data) {
+  }).then(function (data) {
     var ateElem = $("#ateBurgers");
     var notAteElem = $("#notAteBurgers");
 
@@ -11,38 +11,33 @@ $(function() {
     for (var i = 0; i < len; i++) {
       var new_elem =
         "<li>" +
-        burgs[i].id + 
-        ". "+burgs[i].name +
-        "<button class='eat' data-id='" +
         burgs[i].id +
-        "' data-nowate='" +
-        !burgs[i].ate +
-        "'>";
+        ". " + burgs[i].name 
 
-        if (burgs[i].ate) {
-        new_elem += "EAT TIME!";
-      } else {
-        new_elem += "ATE!";
-      }
-
-      new_elem += "</button>";
-
-      new_elem +=
-        "<button class='delete-burger' data-id='" +
-        burgs[i].id +
-        "'>Delete!</button></li>";
 
       if (burgs[i].ate) {
+        new_elem +=
+          "<button class='delete-burger' data-id='" +
+          burgs[i].id +
+          "'>Delete Time!</button></li>";
         ateElem.append(new_elem);
       } else {
+        new_elem +=
+        "<button class='eat' data-id='" +
+          burgs[i].id +
+          "' data-nowate='" +
+          !burgs[i].ate +
+          "'>";
+        new_elem += "EAT TIME!";
+        new_elem += "</button></li>";
         notAteElem.append(new_elem);
       }
     }
   });
 
-  $(document).on("click", ".eat", function(event) {
+  $(document).on("click", ".eat", function (event) {
     var id = $(this).data("id");
-    var nowAte = $(this).data("nowate")===true;
+    var nowAte = $(this).data("nowate") === true;
 
     var nowAteState = {
       ate: nowAte
@@ -51,15 +46,15 @@ $(function() {
     $.ajax("/burgers/" + id, {
       type: "PUT",
       data: JSON.stringify(nowAteState),
-      dataType:'json',
+      dataType: 'json',
       contentType: 'application/json'
-    }).then(function() {
+    }).then(function () {
       console.log("changed ate to", nowAte);
       location.reload();
     });
   });
 
-  $(".create-form").on("submit", function(event) {
+  $(".create-form").on("submit", function (event) {
     event.preventDefault();
 
     var newBurg = {
@@ -74,20 +69,20 @@ $(function() {
     $.ajax("/burgers", {
       type: "POST",
       data: JSON.stringify(newBurg),
-      dataType:'json',
+      dataType: 'json',
       contentType: 'application/json'
-    }).then(function() {
+    }).then(function () {
       console.log("created new burger");
       location.reload();
     });
   });
 
-  $(document).on("click", ".delete-burger", function(event) {
+  $(document).on("click", ".delete-burger", function (event) {
     var id = $(this).data("id");
 
     $.ajax("/burgers/" + id, {
       type: "DELETE"
-    }).then(function() {
+    }).then(function () {
       console.log("deleted burger", id);
       location.reload();
     });
