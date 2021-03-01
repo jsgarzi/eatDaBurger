@@ -2,11 +2,11 @@ $(function() {
   $.ajax("/burgers", {
     type: "GET"
   }).then(function(data) {
-    var ateElem = $("ateBurgers");
+    var ateElem = $("#ateBurgers");
     var notAteElem = $("#notAteBurgers");
 
     var burgs = data.burgers;
-    var len = burgers.length;
+    var len = burgs.length;
 
     for (var i = 0; i < len; i++) {
       var new_elem =
@@ -30,12 +30,12 @@ $(function() {
       new_elem +=
         "<button class='delete-burger' data-id='" +
         burgs[i].id +
-        "'>ATE!</button></li>";
+        "'>Delete!</button></li>";
 
       if (burgs[i].ate) {
         ateElem.append(new_elem);
       } else {
-        NotAteElem.append(new_elem);
+        notAteElem.append(new_elem);
       }
     }
   });
