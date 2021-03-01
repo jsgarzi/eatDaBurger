@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <title>Eat The Burger!!</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/assets/js/burgers.js"></script>
+  </head>
+  <body>
+    <h1>Burgers.</h1>
+
+    <h2>Burgers...  that are not eaten!</h2>
+
+    <ul id="notAteBurger"></ul>
+
+    <h2>Burgers that no longer exist???</h2>
+
+    <ul id="ateBurgers"></ul>
+
+    <h2>Create a Burger (wow)</h2>
+    <form class="create-form">
+      <div class="form-group">
+        <label for="bur">Burger's Name:</label>
+        <input type="text" id="bur" name="name" />
+      </div>
+
+      <div class="form-group">
+        <label for="ate">U Eat That???</label><br />
+        <input type="radio" name="ate" value="1" checked /> Ate.<br />
+        <input type="radio" name="ate" value="0" /> Saving for Later... (weird)
+      </div>
+
+      <button type="submit">Create Burger</button>
+    </form>
+  </body>
+</html>
